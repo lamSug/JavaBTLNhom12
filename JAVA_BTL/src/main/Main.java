@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import basic.Area;
 import basic.Sensor;
@@ -16,8 +17,7 @@ public class Main {
 		WriteFile writeSensor = new WriteFile("Sensors.txt");
 		Area a = new Area();
 		a = readArea.readArea();
-//		System.out.println(a.getWidth());
-//		System.out.println(a.getHeight());
+
 		ArrayList<Sensor> sl = new ArrayList<Sensor>();
 		sl = a.getSensorList();
 		Sensor sParent[] = new Sensor[sl.size()];
@@ -25,30 +25,12 @@ public class Main {
 		for (int i=0; i<sl.size(); i++) {
 			sParent[i] = sNull;
 		}
+		// tim duong di giua 2 dinh s, d
 		sParent = a.DFS(sl.get(0), sl.get(sl.size()-1));
-		
-		//test
-//		for (Sensor s: sl) {
-//			System.out.printf("%d;%d;%d\n", s.getIndex(), s.getCenter().getX(), s.getCenter().getY());
-//			
-//			if (s.getNeighborhood()!=null) {
-//				for (Sensor sNei: s.getNeighborhood()) {
-//					System.out.printf("%d ", sNei.getIndex());
-//				}
-//				System.out.println();
-//			}
-//			
-//			
-//
-//		}
-		//
-		
 		writeSensor.writeSensorCoordinates(sl);
 		
-		
-		
 		JFrame f = new JFrame("Draw a rectangle");
-	    f.getContentPane().add(new Gui(a.getSensorList() , sParent));
+	    f.getContentPane().add(new Gui(a.getSensorList(), sParent, a.getWidth(), a.getHeight()));
 	    f.setSize(1000, 500);
 	    f.setVisible(true);
 	    f.setResizable(false);

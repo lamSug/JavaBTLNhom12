@@ -125,7 +125,7 @@ public class Area {
 	
 	public void dfsUtil(Sensor s, boolean visited[], Sensor sParent[]) {
 		visited[s.getIndex()] = true;
-		System.out.print(s.getIndex() + " ");
+//		System.out.print(s.getIndex() + " ");
 		Iterator<Sensor> itrSensor = s.getNeighborhood().iterator();
 		while (itrSensor.hasNext()) {
 			Sensor s1 = itrSensor.next();
@@ -144,7 +144,7 @@ public class Area {
 			sParent[i] = sNull;
 		}
 		dfsUtil(sStart, visited, sParent);
-		System.out.println();
+//		System.out.println();
 //		for (int i=0; i<sensorList.size(); i++) {
 //			if (sParent[i]!=null)
 //				System.out.print(sParent[i].getIndex() + " ");
