@@ -1,0 +1,13 @@
+500
+300
+70
+30
+
+
+
+
+
+width
+height
+number of sensor
+radius
